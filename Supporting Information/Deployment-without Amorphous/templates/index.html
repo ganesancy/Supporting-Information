@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Extra-Large Pore Zeolite Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Ge/Si" placeholder="Ge/T" required="required" />
+        <input type="text" name="Al/T" placeholder="Al/T" required="required" />
+		<input type="text" name="OH/T" placeholder="OH/T" required="required" />
+		<input type="text" name="H2O/T" placeholder="H2O/T" required="required" />
+        <input type="text" name="F/T" placeholder="F/T" required="required" />
+        <input type="text" name="SDA/T" placeholder="SDA/T" required="required" />
+		<input type="text" name="B/T" placeholder="B/T" required="required" />
+		<input type="text" name="Na2O/T" placeholder="Na2O/T" required="required" />
+        <input type="text" name="Cl/T" placeholder="Cl/T" required="required" />
+        <input type="text" name="Temperature" placeholder="Temperature" required="required" />
+		<input type="text" name="time" placeholder="time" required="required" />
+		<input type="text" name="AR" placeholder="AR" required="required" />
+        <input type="text" name="Area" placeholder="Area" required="required" />
+        <input type="text" name="C/N" placeholder="C/N" required="required" />
+		<input type="text" name="rpm" placeholder="rpm" required="required" />
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+<p id="footnote-1">[1] T=Si+Ge</p>
+<p id="footnote-2">[2] time=crystallization time</p>
+<p id="footnote-3">[3] AR - if SDA contains an aromatic ring, then assign 1; else assign zero</p>
+<p id="footnote-1">[4] Area-Molecular area of SDA calculated from Chem draw</p>
+<p id="footnote-1">[5] Prediction- If MR present in zeolite: [1]- Extra-large pore zeolite, [0] - small or medium or large pore zeolite   </p>
+</body>
+</html>
+
